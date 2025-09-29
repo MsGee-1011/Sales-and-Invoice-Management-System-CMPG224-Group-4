@@ -2,7 +2,7 @@
 
 A comprehensive web-based system for managing sales, invoices, customers, and products for small to medium-sized businesses.
 
-## 👥 Team Members
+## Team Members
 
 | Role | Member | Responsibilities |
 |------|--------|------------------|
@@ -15,23 +15,23 @@ A comprehensive web-based system for managing sales, invoices, customers, and pr
 | Frontend Feature Developer | SS Nkhoma | Page development, API integration |
 | Quality Assurance Tester | AN Ngcobo | Testing, bug reporting, quality control |
 
-## 🚀 Features
+## Features
 
 ### Core Features (In Scope)
-- ✅ **Customer Management** - CRUD operations for customer profiles
-- ✅ **Product Management** - Inventory management with pricing
-- ✅ **Sales Processing** - Record and track sales transactions  
-- ✅ **Invoice Generation** - Automatic PDF invoice creation
-- ✅ **Reporting & Analytics** - Sales reports and financial summaries
-- ✅ **User Access Control** - Role-based permissions (Admin, Sales Staff, Accountant)
+- **Customer Management** - CRUD operations for customer profiles
+- **Product Management** - Inventory management with pricing
+- **Sales Processing** - Record and track sales transactions  
+- **Invoice Generation** - Automatic PDF invoice creation
+- **Reporting & Analytics** - Sales reports and financial summaries
+- **User Access Control** - Role-based permissions (Admin, Sales Staff, Accountant)
 
 ### Out of Scope
-- ❌ External accounting system integration
-- ❌ Online payment gateway integration
-- ❌ Advanced inventory forecasting
-- ❌ Mobile application development
+- External accounting system integration
+- Online payment gateway integration
+- Advanced inventory forecasting
+- Mobile application development
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Python 3.8+** with **Django** & **Django REST Framework**
@@ -50,14 +50,14 @@ A comprehensive web-based system for managing sales, invoices, customers, and pr
 - **Docker** for containerization
 - **Postman** for API testing
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Python 3.8+
 - Node.js 14+
 - PostgreSQL
 - Git
 
-## 🏃‍♂️ Quick Start
+## Quick Start
 
 ### Backend Setup
 ```bash
