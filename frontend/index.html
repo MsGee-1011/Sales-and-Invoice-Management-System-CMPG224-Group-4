@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset = "UTF-8"/>
+	<meta name = "viewpoint" content = "width=device-width, initial-scale=1.0" />
+	<title> Sales and Invoice Management System </title>
+	<script src = " https://cdn.tailwindcss.com"> </script>
+	<style> 
+		body { background-color: #0f172a; color: #e2e8f0; }
+		.sidebar { background-color: #1e293b}
+		.card { background-color: #1e293b}
+		.modal-bg { background-color: rgba(0,0,0,0.5)}
+	</style>
+</head>
+
+<body class = "bg-gray-50 text-gray-800 font-sans"> 
+	<!--Container-->
+	<div class = "flex min-h-screen">
+	
+	<!--Sidebar-->
+	<aside class = "w-64 bg-white shadow-md p-5">
+	<h1 class = "text-2xl font-bold text-indigo-700 mb-8"> SIMS </h1>
+	<nav class ="space-y-3">
+		<a href = "#" class = "block px-3 py-2 rounded hover: bg-indigo-50"> Sales </a>
+		<a href = "#" class = "block px-3 py-2 rounded hover: bg-indigo-50"> Invoices </a>
+		<a href = "#" class = "block px-3 py-2 rounded hover: bg-indigo-50"> Payments </a>
+		<a href = "#" class = "block px-3 py-2 rounded hover: bg-indigo-50"> Reports </a>
+		<a href = "#" class = "block px-3 py-2 rounded hover: bg-indigo-50"> User </a>
+	</nav>
+	<div class = "p-4 border-t border-indigo-500 text-sm"> &copy; 2025 SIMS</div>
+	</aside>
+	
+	<!--Main Content-->
+	<main class = "flex-1 p-8 overflow y-auto">
+		<header class = "flex justify-between items-center mb-8">
+			<div>
+				<h2 class = "text-2xl font-semibold"> Dashboard </h2>
+				<p class = "text-gray-500 text-sm"> Manage your sales and invoices efficiently </p>
+			</div>
+			<button id = "newInvoiceBtn" class = "bg-indigo-600 text-white px-4 py2 rounded shadow hover: bg-indigo-700 transition"> +New Invoice </button>
+		</header>
+			
+	<!--Summary Cards-->
+	<section class = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+		<div class = "bg-white p-4 rounded-lg shadow">
+			<p class = "text-sm text-gray-500"> Total Sales</p>
+			<h3 class = "text-2xl font-bold mt-1"> R45,200</h3>
+		</div>
+		<div class = "bg-white p-4 rounded-lg shadow">
+			<p class = "text-sm text-gray-500"> Pending Invoice </p>
+			<h3 class = "text-2xl font-bold mt-1"> 007 </h3>
+		</div>
+		<div class = "bg-white p-4 rounded-lg shadow">
+			<p class = "text-sm text-gray-500"> Overdue Payments</p>
+			<h3 class = "text-2xl font-bold mt-1"> R5,120</h3>
+		</div>
+		<div class = "bg-white p-4 rounded-lg shadow">
+			<p class = "text-sm text-gray-500"> Actice Customer </p>
+			<h3 class = "text-2xl font-bold mt-1"> 24 </h3>
+		</div>
+	</section>
+	
+	<!--Invoice Table-->
+	<section class = "bg-white p-6 rounded-lg shadow">
+		<h3 class = "text-lg font-semibold mb-4"> Recent Invoices </h3>
+		<table class = "w-full text-sm border-collapse">
+			<thead class = "bg-gray-100 text-left">
+				<tr class = "bg-gray-700 text-gray-300">
+					<th class = "py-2 px-3 border-b border-gray-600"> Invoice ID </th>
+					<th class = "py-2 px-3 border-b border-gray-600">Customer</th>
+					<th class = "py-2 px-3 border-b border-gray-600">Date</th>
+					<th class = "py-2 px-3 border-b border-gray-600">Total</th>
+					<th class = "py-2 px-3 border-b border-gray-600">Status</th>
+					</tr>
+				</thead>
+				<tbody id = "invoiceTableBody">
+					<tr>
+						<td class =  "py-2 px-3 border-b border-gray-600"> INV-1001 </td>
+						<td class = "py-2 px-3 border-b border-gray-600">Acme Crop</td>
+						<td class = "py-2 px-3 border-b border-gray-600">2025-09-12</td>
+						<td class = "py-2 px-3 border-b border-gray-600">R1520.50</td>
+						<td><span class = "bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-medium"> Paid </span></td>
+					</tr>
+					<tr>
+						<td class =  "py-2 px-3 border-b border-gray-600"> INV-1002 </td>
+						<td class = "py-2 px-3 border-b border-gray-600">Blue Ocean</td>
+						<td class = "py-2 px-3 border-b border-gray-600">2025-10-02</td>
+						<td class = "py-2 px-3 border-b border-gray-600">R430.25</td>
+						<td><span class = "bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-medium"> Pending</span></td>
+					</tr>
+					<tr>
+						<td class = "py-2 px-3 border-b border-gray-600"> INV-1003 </td>
+						<td class = "py-2 px-3 border-b border-gray-600">Greenfield</td>
+						<td class = "py-2 px-3 border-b border-gray-600">2025-09-21</td>
+						<td class = "py-2 px-3 border-b border-gray-600">R780.00</td>
+						<td><span class = "bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-medium"> Overdue </span></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</div>
+<!--Modal-->
+<div id = "invoiceModal" class = "fixed insert-0 bg-black bg-opacity-40 flex items-cenetr justify-center hidden">
+		<div class = "bg-white round-lg shadow-lg w-96 p-6">
+			<h3 class = "text-xl font-semibold mb-4">Create New Invoice</h3>
+			<form id = "invoiceForm" class = "space-y-3">
+				<div>
+					<label class = "block mb-2 text-sm font-medium"> Customer Name </label>
+					<input type = "text" class = "w-full border rounded px-3 py-2 mb-4" placeholder = "Enter name" required>
+				</div>
+				<div>
+					<label class = "block mb-2 text-sm font-medium"> Account(R) </label>
+					<input type = "number" class = "w-full border rounded px-3 py-2 mb-4" placeholder = "Enter amount" required>
+				</div>
+				<div class =" flex justify-end space-x-3" >
+					<button type = "button" id = "cancelBtn" class = "px-4 py-2 bg-gray-200 rounded hover: bg-gray-300"> Cancel </button>
+					<button type = "submit" class = "px-4 py-2 bg-gray-600 text-white rounded hover: bg-indigo-700"> Submit </button>
+				</div>
+			</form>
+	</div>
+</div>
+
+<!--JavaScript-->
+	<script>
+		document.addEventListener("DOMContentLoaded", function(){
+		const modal = document.getElementById("invoiceModal");
+		const openBtn = document.getElementById("newInvoiceBtn");
+		const canceBtn = document.getElementById("cancelBtn");
+		const form = document.getElementById("cancelBtn");
+		const tableBody = document.getElementById("invoiceTableBody");
+		
+		openBtn.addEventListener("click", () => modal.classList.remove("hidden"));
+		
+		cancelBtn.addEventListener("click", () => modal.classList.add("hidden"));
+		
+		form.addEventListener("submit", (e) => {
+			e.preventDefault();
+			const name = document.getElementById("custumerName").value;
+			const amount = document.getElementById("invoiceAmount").value;
+			const date = new Date().toISOString().split('T')[0];
+			const newRow = document.createElement("tr");
+			newRow.innerHTML - '		
+				<td class = "py-2 px-3 border-b border-gray-600">INV-${1000 + tableBody.rows.length + 1}</td>
+				<td class = "py-2 px-3 border-b border-gray-600">${name}</td>
+				<td class = "py-2 px-3 border-b border-gray-600">${date}</td>
+				<td class = "py-2 px-3 border-b border-gray-600">R${amount}</td>
+			';
+			tableBody.appendChild(newRow);
+			modal.classList.add("hidden");
+			form.reset();
+		});
+	});
+	</script>
+	
+</body>
+</html>
