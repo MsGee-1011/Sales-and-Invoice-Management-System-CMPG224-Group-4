@@ -4,8 +4,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
+    "web-vitals": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,5 +23,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.7.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
+    "@types/testing-library__jest-dom": "^5.14.9",
+    "ajv": "^8.12.0",
+    "ajv-keywords": "^5.1.0",
+    "react-scripts": "^5.0.1",
+    "typescript": "^5.9.3"
   }
 }
