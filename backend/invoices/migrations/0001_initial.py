@@ -9,17 +9,36 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('customers', '0002_customer_address_alter_customer_name_and_more'),
+        ("customers", "0002_customer_address_alter_customer_name_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Invoice',
+            name="Invoice",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date_issued', models.DateTimeField(auto_now_add=True)),
-                ('total_amount', models.DecimalField(blank=True, decimal_places=2, max_digits=12, null=True)),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='customers.customer')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("date_issued", models.DateTimeField(auto_now_add=True)),
+                (
+                    "total_amount",
+                    models.DecimalField(
+                        blank=True, decimal_places=2, max_digits=12, null=True
+                    ),
+                ),
+                (
+                    "customer",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="customers.customer",
+                    ),
+                ),
             ],
         ),
     ]
